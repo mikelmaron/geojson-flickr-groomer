@@ -6,14 +6,14 @@ function createCallback(i) {
    return function(data) {
      var preview_image = data.sizes.size[5].source;
      window.geojson.features[i].properties['image:href'] = preview_image;
-     $("#geojson_output").text( JSON.stringify(window.geojson) );
+     $("#geojson_output").val( JSON.stringify(window.geojson) );
      request_count--;  
      if (request_count == 0) download();
    };
 }
 
 function doIt() {
-  geojson = JSON.parse($("#geojson_input").text());
+  geojson = JSON.parse($("#geojson_input").val());
   request_count = geojson.features.length;
   var flickr_api = "http://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=43c27f35a02b6e91c34d1de1590e303d&format=json&format=json&photo_id=";
     
