@@ -1,0 +1,3 @@
+baseurl: /geojson-flickr-groomer
+permalink: pretty
+markdown: rdiscount
