@@ -31,6 +31,8 @@ function doIt() {
 $( "#doIt" ).click(function() {doIt()});
 
 function download() {
+    document.getElementById('content').innerHTML = "";
+    
     var blob = new Blob([$("#geojson_output").text()], {type: "application/json"});
     var url  = URL.createObjectURL(blob);
 
