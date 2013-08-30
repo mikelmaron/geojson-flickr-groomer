@@ -33,7 +33,7 @@ function doIt() {
 $( "#doIt" ).click(function() {doIt()});
 
 function download() {
-    var blob = new Blob([$("#geojson_output").text()], {type: "application/json"});
+    var blob = new Blob([$("#geojson_output").val()], {type: "application/json"});
     var url  = URL.createObjectURL(blob);
 
     var a = document.createElement('a');
