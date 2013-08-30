@@ -36,11 +36,12 @@ function download() {
     var blob = new Blob([$("#geojson_output").text()], {type: "application/json"});
     var url  = URL.createObjectURL(blob);
 
-    //var a = document.createElement('a');
-    //a.download    = "backup.json";
-    //a.href        = url;
-    //a.textContent = "Download backup.json";
-    $('#content').html('<h2><a href="' + url + '" "download="groomed-geojson.json">Download groomed-geojson.json</a></h2>');
+    var a = document.createElement('a');
+    a.download    = "backup.json";
+    a.href        = url;
+    a.textContent = "Download groomed-geojson.json";
+    document.getElementById('content').appendChild( document.createElement('h2') ).appendChild(a);
+   // $('#content').html('<h2><a href="' + url + '" "download="groomed-geojson.json">Download groomed-geojson.json</a></h2>');
 
     //document.getElementById('content').appendChild(a);
 }
