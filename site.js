@@ -37,7 +37,7 @@ function download() {
     var url  = URL.createObjectURL(blob);
 
     var a = document.createElement('a');
-    a.download    = "backup.json";
+    a.download    = "groomed-geojson.json";
     a.href        = url;
     a.textContent = "Download groomed-geojson.json";
     document.getElementById('content').appendChild( document.createElement('h2') ).appendChild(a);
