@@ -14,6 +14,8 @@ function createCallback(i) {
 
 function doIt() {
   geojson = JSON.parse($("#geojson_input").val());
+  $('#content').html('');
+
   request_count = geojson.features.length;
   var flickr_api = "http://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=43c27f35a02b6e91c34d1de1590e303d&format=json&format=json&photo_id=";
     
@@ -31,15 +33,14 @@ function doIt() {
 $( "#doIt" ).click(function() {doIt()});
 
 function download() {
-    document.getElementById('content').innerHTML = "";
-    
     var blob = new Blob([$("#geojson_output").text()], {type: "application/json"});
     var url  = URL.createObjectURL(blob);
 
-    var a = document.createElement('a');
-    a.download    = "backup.json";
-    a.href        = url;
-    a.textContent = "Download backup.json";
+    //var a = document.createElement('a');
+    //a.download    = "backup.json";
+    //a.href        = url;
+    //a.textContent = "Download backup.json";
+    $('#content').html('<a href="' + url + '" "download="groomed-geojson.json">Download groomed-geojson.json</a>');
 
-    document.getElementById('content').appendChild(a);
+    //document.getElementById('content').appendChild(a);
 }
